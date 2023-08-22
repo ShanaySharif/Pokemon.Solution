@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+<h1> WELCOME TO THE POKEDEX </h1>
+</div>
+<div class= "center-text container">
+    <h1>Pokedex Search</h1>
+    <br>
+        @using (Html.BeginForm("Search", "Pokemons", FormMethod.Post ))
+        {
+            <label for="name">Pokemon Name: </label>
+            <input type="text" name="name" required oninvaild="setCustomValidity('Please Enter a Pokemon\'s Name:')"oninput="setCustomValidity('')"/>
+            <button type="submit" class="btn btn-success">Search</button>
+        }
+</div>

@@ -1,0 +1,33 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class= "container">
+    <h1>Pokedex Search</h1>
+        @using (Html.BeginForm("Search", "Pokemons", FormMethod.Post ))
+        {
+            <label for="name">Pokemon Name: </label>
+            <input type="text" name="name" />
+
+            // Loop thru ViewBag.Types and make checkboxes for each type
+            // Value for each checkbox is value of the type in dictionary. I.E., Normal = 1
+            // Assign to List<int> types
+
+            <button type="submit" class="btn btn-success">Search</button>
+        }
+    </div>
+
+<div class="card-container">
+    @foreach (Pokemon pokemon in Model)
+    {
+        <div class="card-content">
+            <p>@pokemon.Number</p>
+            <p>@pokemon.Name</p>
+            <p>@pokemon.Type1</p>
+            <p>@pokemon.Type2</p>   
+        </div>
+    }
+</div>
+
+<p>@Html.ActionLink("Home", "index", "Home")</p>
+
