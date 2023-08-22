@@ -48,7 +48,7 @@ public class PokemonsController : Controller
 
         if (!string.IsNullOrEmpty(name))
         {
-            query = query.Where(p => p.Name.ToLower() == name.ToLower().Trim());
+            query = query.Where(p => p.Name.ToLower().Contains(name.ToLower().Trim()));
         }
 
         if (types.Any())
