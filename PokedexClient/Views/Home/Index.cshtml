@@ -11,7 +11,15 @@
         @using (Html.BeginForm("Search", "Pokemons", FormMethod.Post ))
         {
             <label for="name">Pokemon Name: </label>
-            <input type="text" name="name" required oninvaild="setCustomValidity('Please Enter a Pokemon\'s Name:')"oninput="setCustomValidity('')"/>
+            <input type="text" name="name" />
+            <br>
+            <br>
+            @foreach(var type in ViewBag.Types)
+            {
+                <input type="checkbox" name="types" value="@type.Value" id="@type.Key" class="custom-checkbox"/>
+                <label for="@type.Key">@type.Key</label>
+            }
+            <br>
             <button type="submit" class="btn btn-success">Search</button>
         }
 </div>

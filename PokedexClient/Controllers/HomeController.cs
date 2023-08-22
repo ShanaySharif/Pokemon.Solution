@@ -6,9 +6,9 @@ namespace PokedexClient.Controllers;
 
 public class HomeController : Controller
 {
-    
+
     private readonly PokedexContext _db;
-    
+
     public HomeController(PokedexContext db)
     {
         _db = db;
@@ -16,8 +16,9 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        ViewBag.Types = PokemonTypes.Dictionary;
         return View();
-        
+
     }
 
 }
