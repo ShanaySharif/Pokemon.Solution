@@ -21,25 +21,37 @@ body {
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  gap: 15px;
+  margin-top: 20px;
 }
+
 
 .card-content {
-  min-width: 250px;
-  border: solid black 1px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  border: 1px solid #ddd;
   padding: 15px;
-
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.custom-checkbox{
-  display: inline-block;
+.card-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-  width: 15%;
+.card-content p {
+  margin: 5px;
+}
+
+.custom-checkbox + label {
+  display: inline-block;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+  padding: 3px 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }

@@ -74,4 +74,12 @@ public class PokemonsController : Controller
         return View(model);
     }
 
+    public ActionResult Details(int id)
+    {
+        Pokemon thisPokemon = _db.Pokemons.FirstOrDefault(p => p.PokemonId == id);
+        {
+            return View(thisPokemon);
+        }
+    }
+
 }
