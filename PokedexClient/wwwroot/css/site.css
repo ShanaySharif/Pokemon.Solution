@@ -35,4 +35,11 @@ body {
   justify-content: center;
   align-items: center;
   padding: 15px;
+
+}
+
+.custom-checkbox{
+  display: inline-block;
+
+  width: 15%;
 }
