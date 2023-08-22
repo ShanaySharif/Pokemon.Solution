@@ -3,7 +3,7 @@
 }
 
 <div class="text-center">
-<h1> WELCOME TO THE POKEDEX </h1>
+    <h1> WELCOME TO THE POKEDEX </h1>
 </div>
 <div class= "center-text container">
     <h1>Pokedex Search</h1>
@@ -16,8 +16,10 @@
             <br>
             @foreach(var type in ViewBag.Types)
             {
-                <input type="checkbox" name="types" value="@type.Value" id="@type.Key" class="custom-checkbox"/>
-                <label for="@type.Key">@type.Key</label>
+                <div class="checkbox-container">
+                    <input type="checkbox" name="types" value="@type.Value" id="@type.Key" class="custom-checkbox"/>
+                    <label for="@type.Key" class="@type.Key type-label">@type.Key</label>
+                </div>
             }
             <br>
             <button type="submit" class="btn btn-success">Search</button>

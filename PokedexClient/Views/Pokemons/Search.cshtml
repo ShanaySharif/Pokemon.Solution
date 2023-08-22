@@ -13,7 +13,7 @@
             @foreach(var type in ViewBag.Types)
             {
                 <input type="checkbox" name="types" value="@type.Value" id="@type.Key" class="custom-checkbox"/>
-                <label for="@type.Key">@type.Key</label>
+                <label for="@type.Key" class="@type.Key">@type.Key</label>
             }
             <br>
 
