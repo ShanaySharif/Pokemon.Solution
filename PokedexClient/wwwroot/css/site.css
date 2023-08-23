@@ -57,8 +57,8 @@ body {
 }
 
 .card-container a {
-  text-decoration: bold;
-  color: rgb(61, 107, 187);     
+  text-decoration: none;
+  color: rgb(61, 107, 187);
   cursor: pointer; 
 }
 
@@ -66,32 +66,85 @@ body {
   margin: 5px;
 }
 
-.custom-checkbox + label {
+/* .custom-checkbox + label {
   display: inline-block;
-  background-color: #f2f2f2;
   border-radius: 3px;
   padding: 3px 10px;
   cursor: pointer;
   transition: background-color 0.2s;
-}
-
-custom-checkbox:checked + label {
-  background-color: #e74c3c;
-  color: white;
-}
-
+} */
 
 .checkbox-container {
-  border: solid black 1px;
-  border-radius: 2px;
   display: inline-block;
-  padding: 2px;
+  border: solid black 1px;
+  border-radius: 4px;
+  padding: 8px;
   margin: 2px;
 }
 
 .custom-checkbox {
-  transform: scaleX(1.5);
-  transform: scaleY(2.5);
+  transform: scale(1.5);
+  margin-right: 3px;
+}
+
+.Normal {
+  background: rgb(132, 121, 125);
+}
+
+.Fire {
+  background: #e42a0e;
+}
+
+.Water {
+  background:rgb(44, 105, 209)
+}
+
+.Electric { 
+  background:rgb(237, 241, 22)
+}
+
+.Grass {
+  background: rgb(115, 216, 20);
+}
+
+.Ice {
+  background: rgb(122, 169, 255);
+}
+
+.Fighting {
+  background: rgb(248, 132, 37);
+}
+
+.Poison {
+  background: rgb(190, 108, 228);
+}
+
+.Ground {
+  background: linear-gradient(#f0c844 50%, rgb(174, 119, 57) 50%);
+}
+
+.Flying {
+  background: linear-gradient(rgb(122, 169, 255) 50%, rgb(156, 164, 163) 50%);
+}
+
+.Psychic {
+  background: rgb(229, 63, 104);
+}
+
+.Bug {
+  background: rgb(67, 155, 8);
+}
+
+.Rock {
+  background: rgb(176, 108, 6);
+}
+
+.Ghost {
+  background: rgb(130, 77, 166);
+}
+
+.Dragon {
+  background: linear-gradient(rgb(44, 105, 209) 50%, rgb(226, 99, 53) 50%);
 }
 
 

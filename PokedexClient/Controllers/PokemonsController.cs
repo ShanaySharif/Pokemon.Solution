@@ -64,7 +64,7 @@ public class PokemonsController : Controller
 
             if (selectedTypeNames.Count == 1)
             {
-                query = query.Where(p => selectedTypeNames.Contains(p.Type1));
+                query = query.Where(p => selectedTypeNames.Contains(p.Type1) || selectedTypeNames.Contains(p.Type2));
             }
         }
 
