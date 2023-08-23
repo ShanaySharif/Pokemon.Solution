@@ -102,15 +102,32 @@ body {
 
 .checkbox-container {
   display: inline-block;
-  border: solid black 1px;
+  border: solid rgb(130, 128, 128) 1px;
   border-radius: 4px;
   padding: 8px;
   margin: 2px;
+  transition: filter 0.2s, border 0.2s ease;
+}
+
+.checkbox-container:hover {
+  filter: saturate(350%);
+  border: solid black 1px;
 }
 
 .custom-checkbox {
   transform: scale(1.5);
   margin-right: 3px;
+}
+
+.types-container {
+  margin-top: 10px;
+}
+
+.type-label {
+  color: white;
+  min-width: 50px;
+  text-align: center;
+  font-weight: 550;
 }
 
 .Normal {
