@@ -18,15 +18,19 @@
         <button class="btn border" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse">
             Filters
         </button>
-         <div id="filterCollapse" class="collapse">
+        <div id="filterCollapse" class="collapse types-container">
             @foreach(var type in ViewBag.Types)
             {
-                <div class="checkbox-container @type.Key">
-                    <input type="checkbox" name="types" value="@type.Value" id="@type.Key" class="custom-checkbox"/>
+                <div class="checkbox-container @type.Key type-checkbox" data-type="@type.Key" >
+                    @* <input 
+                        type="checkbox" 
+                        name="types" 
+                        value="@type.Value" 
+                        class="custom-checkbox"
+                    /> *@
                     <label for="@type.Key" class="@type.Key type-label">@type.Key</label>
                 </div>
             }
-         </div>
-            <br>
+        </div>
         }
 </div>

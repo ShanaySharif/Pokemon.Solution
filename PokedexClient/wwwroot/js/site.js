@@ -1,7 +1,7 @@
-﻿// Utilizing AJAX to asynchronously delete a stylist after user-confirmation.
+﻿// Utilizing AJAX to asynchronously filter Pokémon by type.
 const typeSearch = document.querySelectorAll('.type-checkbox');
 
-// Create click handler for every deleteLink element.
+// Create click handler for every type checkbox.
 typeSearch.forEach((typeSearch) => {
     typeSearch.addEventListener('click', (e) => {
         e.preventDefault(); 
@@ -9,12 +9,12 @@ typeSearch.forEach((typeSearch) => {
         // Grab the type name from the data-type attribute.
         let typeName = typeSearch.getAttribute('data-type');
         
-        // Initiates an AJAX request on confirmation.
+        // Initiates an AJAX request.
         $.ajax({
             // Route and type of request.
             url: "/Pokemons/TypeFilter",
             type: 'POST',
-            // Delete route requires an Id.
+            // Filter route requires a type name.
             data: { name: typeName },
             success: function(response) {
                 // Replace the container's content with the returned HTML
@@ -22,8 +22,9 @@ typeSearch.forEach((typeSearch) => {
             },
             error: function(err) {
                 console.error("Error:", err);
-            }
+            }      
         });
-        
     });
 });
+
+
