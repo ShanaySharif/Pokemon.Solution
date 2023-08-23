@@ -22,12 +22,6 @@
             @foreach(var type in ViewBag.Types)
             {
                 <div class="checkbox-container @type.Key type-checkbox" data-type="@type.Key" >
-                    @* <input 
-                        type="checkbox" 
-                        name="types" 
-                        value="@type.Value" 
-                        class="custom-checkbox"
-                    /> *@
                     <label for="@type.Key" class="@type.Key type-label">@type.Key</label>
                 </div>
             }
