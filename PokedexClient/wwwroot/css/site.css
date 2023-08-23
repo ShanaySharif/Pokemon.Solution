@@ -14,13 +14,13 @@ html {
 }
 
 @font-face {
-  font-family: VT323;
-  src: url("/bad.ttf");
+  font-family: 'VT323';
+  src: url('/css/Pokemon.ttf') format('truetype');
 }
 
 body {
   margin-bottom: 60px;
-  font-family: VT323, sans-serif;
+  font-family: 'VT323', sans-serif;
 }
 
 .customBtn{
@@ -49,7 +49,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 20px;
-  font-family: VT323;
+  font-family: 'VT323', sans-serif;
 }
 
 .whiteColorText{
@@ -61,6 +61,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: 'VT323', sans-serif;
 
   border: 1px solid #ddd;
   border-radius: 50px;

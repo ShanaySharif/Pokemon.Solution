@@ -1,16 +1,22 @@
-// using Microsoft.AspNetCore.Mvc;
-// using PokedexClient.Models;
-// using System.Collections.Generic;
-// using System.Linq;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using PokedexClient.Models;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 
-// namespace PokemonUserController.Controllers;
+namespace PokemonUserController.Controllers;
 
-// public class PokemonsController : Controller
-// {
-//     private readonly PokedexContext _db;
+public class PokemonUserController : Controller
+{
+    private readonly PokedexContext _db;
 
-//     public PokemonsController(PokedexContext db)
-//     {
-//         _db = db;
-//     }
+    public PokemonUserController(PokedexContext db)
+    {
+        _db = db;
+    }
+
+
+}

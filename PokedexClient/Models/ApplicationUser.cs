@@ -6,7 +6,7 @@ namespace PokedexClient.Models;
 
 public class ApplicationUser : IdentityUser
 {
-    public List<PokemonUser> PokemonUser { get; set; }
+    public List<PokemonUser> PokemonUsers { get; set; }
 }
 
 

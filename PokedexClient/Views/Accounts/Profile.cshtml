@@ -1,0 +1,18 @@
+@{
+  Layout = "_Layout";
+}
+
+<h1>Id: @Model.Id</h1>
+<h1>Email: @Model.Email</h1>
+
+@if(Model.PokemonUsers.Count == 0)
+{
+  <p>Go add a Pokémon to your lineup!</p>
+} 
+else
+{
+  @foreach(PokemonUser pokemonUser in Model.PokemonUser)
+  {
+    <p>@pokemonUser.Pokemon.Name</p>
+  }
+}
