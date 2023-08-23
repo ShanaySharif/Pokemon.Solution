@@ -11,9 +11,12 @@
         @using (Html.BeginForm("Search", "Pokemons", FormMethod.Post ))
         {
             <label for="name">Pokemon Name: </label>
-            <input type="text" name="name" />
-            <br>
-            <br>
+        <input type="text" name="name" />
+        <button type="submit" class="btn customBtn border"><span class="hoverRed">Sea</span> <span class="hoverWhite">rch</span></button>
+        <button class="btn border" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse">
+            Filters
+        </button>
+         <div id="filterCollapse" class="collapse">
             @foreach(var type in ViewBag.Types)
             {
                 <div class="checkbox-container @type.Key">
@@ -21,7 +24,7 @@
                     <label for="@type.Key" class="@type.Key type-label">@type.Key</label>
                 </div>
             }
+         </div>
             <br>
-            <button type="submit" class="btn btn-success">Search</button>
         }
 </div>
