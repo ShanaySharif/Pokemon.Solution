@@ -71,6 +71,23 @@ public class PokemonsController : Controller
         return View(model);
     }
 
+    // Handled by site.js
+    [HttpPost]
+    public ActionResult TypeFilter(string name)
+    {
+        IQueryable<Pokemon> query = _db.Pokemons;
+
+        if (name != null)
+        {
+            query = query.Where(p => p.Type1 == name || p.Type2 == name);
+        }
+
+        ViewBag.Types = PokemonTypes.Dictionary;
+        List<Pokemon> model = query.ToList();
+
+        return PartialView("_PokemonList", model);
+    }
+
     public ActionResult Details(int id)
     {
         Pokemon thisPokemon = _db.Pokemons.FirstOrDefault(p => p.PokemonId == id);
@@ -78,5 +95,4 @@ public class PokemonsController : Controller
             return View(thisPokemon);
         }
     }
-
 }

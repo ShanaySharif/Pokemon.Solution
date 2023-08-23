@@ -2,6 +2,8 @@
     Layout = "_Layout";
 }
 
+@model List<Pokemon>
+
 <div class= "container">
     <h1>Pokedex Search</h1>
         @using (Html.BeginForm("Search", "Pokemons", FormMethod.Post ))
@@ -19,8 +21,14 @@
 
             @foreach(var type in ViewBag.Types)
             {
-                <div class="checkbox-container @type.Key">
-                    <input type="checkbox" name="types" value="@type.Value" id="@type.Key" class="custom-checkbox"/>
+                <div class="checkbox-container @type.Key type-checkbox" data-type="@type.Key" >
+                    @* pass both types in the data-id *@
+                    <input 
+                        type="checkbox" 
+                        name="types" 
+                        value="@type.Value" 
+                        class="custom-checkbox"
+                    />
                     <label for="@type.Key" class="@type.Key type-label">@type.Key</label>
                 </div>
             }
@@ -28,30 +36,9 @@
         }
     </div>
 
-<div class="card-container">
-    @if(Model.Count == 0)
-    { 
-        <div class="card-content">
-            <p>Sorry no pokemon matched your search.</p>
-        </div>
-    }
-    @foreach (Pokemon pokemon in Model)
-    {
-<a href="/pokemons/details/@pokemon.PokemonId">
-            <div class="card-content">
-                <p class="whiteColorText">@pokemon.Number</p>
-                <h2 class="whiteColorText text-center">@pokemon.Name</h2>
-                <img src="/images/@(pokemon.PokemonId).png" width="200px" /> 
-                <div class="type-container">
-                    <p class="redColorText">@pokemon.Type1</p>
-                    @if(pokemon.Type2 != "None")
-                    {
-                        <p class="redColorText">@pokemon.Type2</p>   
-                    }
-                </div>
-            </div>
-        </a>
-    }
+    <div id="pokemonContainer" class="card-container">
+        @await Html.PartialAsync("_PokemonList", Model)
+    </div>
 </div>
 
 <p>@Html.ActionLink("Home", "Index", "Home")</p>
