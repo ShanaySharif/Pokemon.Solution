@@ -13,8 +13,14 @@ html {
   min-height: 100%;
 }
 
+/* @font-face {
+  font-family: 'VT323';
+  src: url('https://fonts.googleapis.com/css?family=VT323') format('VT323');
+} */
+
 body {
   margin-bottom: 60px;
+  /* font-family: 'VT323'; */
 }
 
 .card-container {
@@ -23,8 +29,6 @@ body {
   justify-content: center;
   margin-top: 20px;
 }
-
-
 
 .card-content:hover .whiteColorText{
   color: white;
@@ -38,7 +42,6 @@ body {
   border: 1px solid #ddd;
   border-radius: 50px;
   border: 2px solid black;
-
 
   width: 250px;
   padding: 15px;
@@ -95,14 +98,6 @@ body {
 .card-content p {
   margin: 5px;
 }
-
-/* .custom-checkbox + label {
-  display: inline-block;
-  border-radius: 3px;
-  padding: 3px 10px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-} */
 
 .checkbox-container {
   display: inline-block;

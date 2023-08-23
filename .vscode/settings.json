@@ -1,3 +1,6 @@
 {
-    "dotnet.defaultSolution": "PokedexClient/PokedexClient.sln"
+    "dotnet.defaultSolution": "PokedexClient/PokedexClient.sln",
+    "cSpell.words": [
+        "Pokemons"
+    ]
 }
