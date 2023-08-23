@@ -6,10 +6,17 @@
     <h1>Pokedex Search</h1>
         @using (Html.BeginForm("Search", "Pokemons", FormMethod.Post ))
         {
-            <label for="name">Pokemon Name: </label>
-            <input type="text" name="name" />
-            <br>
-            <br>
+            <div class="input-group">
+                <input type="text" class="form-control mx-5" name="name" placeholder="Search by stylist name" />
+                <div class="input-group-append">
+                    <button type="submit" class="btn customBtn border me-3"><span class="hoverRed">Sea</span> <span class="hoverWhite">rch</span></button>
+                    <button class="btn border me-5" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse">
+                        Filters
+                    </button>
+                </div>
+        </div>
+                <div id="filterCollapse" class="collapse">
+
             @foreach(var type in ViewBag.Types)
             {
                 <div class="checkbox-container @type.Key">
@@ -17,9 +24,7 @@
                     <label for="@type.Key" class="@type.Key type-label">@type.Key</label>
                 </div>
             }
-            <br>
-
-            <button type="submit" class="btn btn-success">Search</button>
+                </div>
         }
     </div>
 
@@ -32,13 +37,13 @@
     }
     @foreach (Pokemon pokemon in Model)
     {
-        <a href="/pokemons/details/@pokemon.PokemonId">
+<a href="/pokemons/details/@pokemon.PokemonId">
             <div class="card-content">
-                <p>@pokemon.Number</p>
-                <p>@pokemon.Name</p>
+                <p class="whiteColorText">@pokemon.Number</p>
+                <h2 class="whiteColorText text-center">@pokemon.Name</h2>
                 <img src="/images/@(pokemon.PokemonId).png" width="200px" /> 
-                <p>@pokemon.Type1</p>
-                <p>@pokemon.Type2</p>   
+                <p class="redColorText">@pokemon.Type1</p>
+                <p class="redColorText">@pokemon.Type2</p>   
             </div>
         </a>
     }

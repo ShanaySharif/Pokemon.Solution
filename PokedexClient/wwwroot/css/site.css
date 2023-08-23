@@ -25,6 +25,15 @@ body {
 }
 
 
+
+.card-content:hover .whiteColorText{
+  color: white;
+}
+
+.redColorText{
+  color: red;
+}
+
 .card-content {
   border: 1px solid #ddd;
   border-radius: 50px;
@@ -51,6 +60,27 @@ body {
   background: linear-gradient(180deg, #FB1B1B 50%, black 50%, black 52%, #F9F9F8 52%); 
 }
 
+
+.customBtn{
+  background: linear-gradient(90deg, #FB1B1B 50%, black 50%, black 52%, white 52%);
+}
+
+.customBtn:hover{
+  background: linear-gradient(90deg, white 50%, black 50%, black 52%, #FB1B1B 52%);
+}
+
+.hoverRed{
+  color: white;
+}
+.hoverWhite{
+  color: red;
+}
+.customBtn:hover .hoverRed{ 
+  color: red; 
+}
+.customBtn:hover .hoverWhite{ 
+  color: white; 
+}
 .card-content:hover img {
   transform: scale(1.1) translateY(-8px);
   transition: transform 0.2s ease;
@@ -58,7 +88,7 @@ body {
 
 .card-container a {
   text-decoration: none;
-  color: rgb(61, 107, 187);
+  color: black;
   cursor: pointer; 
 }
 
@@ -148,3 +178,6 @@ body {
 }
 
 
+.animated-table tr:hover{
+  background-color: rgb(234, 186, 186);
+}
