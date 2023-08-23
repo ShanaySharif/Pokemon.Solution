@@ -1,0 +1,16 @@
+@model List<PokedexClient.Models.PokemonUser>
+
+@{
+    Layout = "_Layout";
+}
+
+<h1>Hello, this is your entire list of Pokémon users</h1>
+
+<div class="card-container">
+    @foreach (var pokemonUser in Model)
+    {
+        <p>@Html.ActionLink($"{pokemonUser.Pokemon.Name}", "Details", "Pokemons", new { id = pokemonUser.PokemonUserId }, null)</p>
+    }
+</div>
+
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
