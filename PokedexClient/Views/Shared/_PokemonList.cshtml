@@ -11,8 +11,9 @@
     <a href="/pokemons/details/@pokemon.PokemonId">
         <div class="card-content">
             <p class="whiteColorText">@pokemon.Number</p>
-            <h2 class="whiteColorText text-center">@pokemon.Name</h2>
+            <h2 class="whiteColorText">@pokemon.Name</h2>
             <img src="/images/@(pokemon.PokemonId).png" width="200px" /> 
+
             <div class="type-container">
                 <p class="redColorText">@pokemon.Type1</p>
                 @if(pokemon.Type2 != "None")

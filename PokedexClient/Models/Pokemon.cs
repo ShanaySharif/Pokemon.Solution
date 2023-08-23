@@ -17,5 +17,5 @@ public class Pokemon
     public int Defense { get; set; }
     public int Special { get; set; }
     public int Speed { get; set; }
-    public List<PokemonsUser> PokemonsUser { get; set; }
+    public List<PokemonUser> PokemonUser { get; set; }
 }

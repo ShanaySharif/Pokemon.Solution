@@ -13,63 +13,22 @@ html {
   min-height: 100%;
 }
 
-/* @font-face {
-  font-family: 'VT323';
-  src: url('https://fonts.googleapis.com/css?family=VT323') format('ttf');
-} */
+@font-face {
+  font-family: VT323;
+  src: url("/bad.ttf");
+}
 
 body {
   margin-bottom: 60px;
-  /* font-family: 'VT323'; */
+  font-family: VT323, sans-serif;
 }
-
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.card-content:hover .whiteColorText{
-  color: white;
-}
-
-.redColorText{
-  color: red;
-}
-
-.card-content {
-  border: 1px solid #ddd;
-  border-radius: 50px;
-  border: 2px solid black;
-
-  width: 250px;
-  padding: 15px;
-  margin: 10px;
-  
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: F9F9F8;
-
-  transition: transform 0.2s, box-shadow 0.2s, background-color .3s;
-  border: 2px solid black; /* Add border */
-  background: linear-gradient(to right, #FF3B3F 50%, white 50%);
-  background-size: 200% 100%;
-  background-position: right bottom;
-}
-
-.card-content:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(180deg, #FB1B1B 50%, black 50%, black 52%, #F9F9F8 52%); 
-}
-
 
 .customBtn{
-  background: linear-gradient(90deg, #FB1B1B 50%, black 50%, black 52%, white 52%);
+  background: linear-gradient(90deg, #FB1B1B 50%, black 50%, black 51%, white 51%);
 }
 
 .customBtn:hover{
-  background: linear-gradient(90deg, white 50%, black 50%, black 52%, #FB1B1B 52%);
+  background: linear-gradient(90deg, white 50%, black 50%, black 51%, #FB1B1B 51%);
 }
 
 .hoverRed{
@@ -84,9 +43,51 @@ body {
 .customBtn:hover .hoverWhite{ 
   color: white; 
 }
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+  font-family: VT323;
+}
+
+.whiteColorText{
+  color: white;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  border: 2px solid black;
+
+  width: 250px;
+  padding: 15px;
+  margin: 10px;
+  
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(180deg, #FB1B1B 50%, black 50%, black 52%, #F9F9F8 52%); 
+
+  transition: transform 0.3s, box-shadow 0.2s ease;
+  border: 2px solid black; /* Add border */
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+
+.card-content:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px);
+}
+
+
 .card-content:hover img {
   transform: scale(1.1) translateY(-8px);
-  transition: transform 0.2s ease;
+  transition: transform 0.4s ease;
 }
 
 .card-container a {
@@ -113,19 +114,19 @@ body {
 }
 
 .Normal {
-  background: rgb(132, 121, 125);
+  background: rgb(156, 151, 153);
 }
 
 .Fire {
-  background: #e42a0e;
+  background: rgb(209, 44, 44);
 }
 
 .Water {
-  background:rgb(44, 105, 209)
+  background:rgb(44, 105, 209);
 }
 
 .Electric { 
-  background:rgb(237, 241, 22)
+  background:rgb(237, 241, 22);
 }
 
 .Grass {
@@ -133,7 +134,7 @@ body {
 }
 
 .Ice {
-  background: rgb(122, 169, 255);
+  background: rgb(122, 222, 255);
 }
 
 .Fighting {
@@ -145,11 +146,11 @@ body {
 }
 
 .Ground {
-  background: linear-gradient(#f0c844 50%, rgb(174, 119, 57) 50%);
+  background: rgb(139, 95, 46);
 }
 
 .Flying {
-  background: linear-gradient(rgb(122, 169, 255) 50%, rgb(156, 164, 163) 50%);
+  background: rgb(122, 169, 255);
 }
 
 .Psychic {
@@ -161,7 +162,7 @@ body {
 }
 
 .Rock {
-  background: rgb(176, 108, 6);
+  background: rgb(182, 142, 83);
 }
 
 .Ghost {
@@ -169,7 +170,7 @@ body {
 }
 
 .Dragon {
-  background: linear-gradient(rgb(44, 105, 209) 50%, rgb(226, 99, 53) 50%);
+  background: rgb(255, 90, 30);
 }
 
 
