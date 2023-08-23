@@ -7,12 +7,15 @@
 <div class="card-container">
     @foreach (Pokemon pokemon in Model)
     {
-        <div class="card-content">
-            <p>@pokemon.Number</p>
-            <p>@pokemon.Name</p>
-            <p>@pokemon.Type1</p>
-            <p>@pokemon.Type2</p>   
-        </div>
+        <a href="/pokemons/details/@pokemon.PokemonId">
+            <div class="card-content">
+                <p>@pokemon.Number</p>
+                <p>@pokemon.Name</p>
+                <img src="/images/@(pokemon.PokemonId).png" width="200px" /> 
+                <p>@pokemon.Type1</p>
+                <p>@pokemon.Type2</p>   
+            </div>
+        </a>
     }
 </div>
 

@@ -17,22 +17,76 @@ body {
   margin-bottom: 60px;
 }
 
-
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  gap: 15px;
+  margin-top: 20px;
 }
 
+
 .card-content {
-  min-width: 250px;
-  border: solid black 1px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  border: 1px solid #ddd;
+  border: 2px solid black;
+  border-radius: 50px;
+  border: 5px
+  width: 250px;
   padding: 15px;
+  margin: 10px;
+  
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: F9F9F8;
+
+  transition: transform 0.2s, box-shadow 0.2s, background-color .3s;
 }
+
+.card-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(180deg, #FB1B1B 50%, black 50%, black 52%, #F9F9F8 52%); 
+}
+
+.card-content:hover img {
+  transform: scale(1.1) translateY(-8px);
+  transition: transform 0.2s ease;
+}
+
+.card-container a {
+  text-decoration: bold;
+  color: rgb(61, 107, 187);     
+  cursor: pointer; 
+}
+
+.card-content p {
+  margin: 5px;
+}
+
+.custom-checkbox + label {
+  display: inline-block;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+  padding: 3px 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+custom-checkbox:checked + label {
+  background-color: #e74c3c;
+  color: white;
+}
+
+
+.checkbox-container {
+  border: solid black 1px;
+  border-radius: 2px;
+  display: inline-block;
+  padding: 2px;
+  margin: 2px;
+}
+
+.custom-checkbox {
+  transform: scaleX(1.5);
+  transform: scaleY(2.2);
+}
+
+

@@ -8,26 +8,39 @@
         {
             <label for="name">Pokemon Name: </label>
             <input type="text" name="name" />
-
-            // Loop thru ViewBag.Types and make checkboxes for each type
-            // Value for each checkbox is value of the type in dictionary. I.E., Normal = 1
-            // Assign to List<int> types
+            <br>
+            <br>
+            @foreach(var type in ViewBag.Types)
+            {
+                <input type="checkbox" name="types" value="@type.Value" id="@type.Key" class="custom-checkbox"/>
+                <label for="@type.Key" class="@type.Key">@type.Key</label>
+            }
+            <br>
 
             <button type="submit" class="btn btn-success">Search</button>
         }
     </div>
 
 <div class="card-container">
+    @if(Model.Count == 0)
+    { 
+        <div class="card-content">
+            <p>Sorry no pokemon matched your search.</p>
+        </div>
+    }
     @foreach (Pokemon pokemon in Model)
     {
-        <div class="card-content">
-            <p>@pokemon.Number</p>
-            <p>@pokemon.Name</p>
-            <p>@pokemon.Type1</p>
-            <p>@pokemon.Type2</p>   
-        </div>
+        <a href="/pokemons/details/@pokemon.PokemonId">
+            <div class="card-content">
+                <p>@pokemon.Number</p>
+                <p>@pokemon.Name</p>
+                <img src="/images/@(pokemon.PokemonId).png" width="200px" /> 
+                <p>@pokemon.Type1</p>
+                <p>@pokemon.Type2</p>   
+            </div>
+        </a>
     }
 </div>
 
-<p>@Html.ActionLink("Home", "index", "Home")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
 
