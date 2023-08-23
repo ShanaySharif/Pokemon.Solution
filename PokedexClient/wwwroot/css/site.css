@@ -27,9 +27,10 @@ body {
 
 .card-content {
   border: 1px solid #ddd;
-  border: 2px solid black;
   border-radius: 50px;
-  border: 5px
+  border: 2px solid black;
+
+
   width: 250px;
   padding: 15px;
   margin: 10px;
@@ -38,6 +39,10 @@ body {
   background-color: F9F9F8;
 
   transition: transform 0.2s, box-shadow 0.2s, background-color .3s;
+  border: 2px solid black; /* Add border */
+  background: linear-gradient(to right, #FF3B3F 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
 }
 
 .card-content:hover {
@@ -86,7 +91,7 @@ custom-checkbox:checked + label {
 
 .custom-checkbox {
   transform: scaleX(1.5);
-  transform: scaleY(2.2);
+  transform: scaleY(2.5);
 }
 
 
