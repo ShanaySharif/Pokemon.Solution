@@ -5,7 +5,6 @@ using PokedexClient.Models;
 using PokedexClient.ViewModels;
 using System.Threading.Tasks;
 using System.Linq;
-using Microsoft.AspNetCore.Authorization;
 
 namespace PokedexClient.Controllers;
 
@@ -145,13 +144,12 @@ public class AccountsController : Controller
   }
 
   [HttpPost]
-  [Authorize]
   public async Task<IActionResult> AddPokemonToUserList(int pokemonId)
   {
-    // if (!User.Identity.IsAuthenticated)
-    //   return View("Register");
-    //if user is not authenticated
-    //then return View("Register");
+    if (!User.Identity.IsAuthenticated)
+    {
+      return RedirectToAction("Register");
+    }
 
     // Get the current logged-in user's ID.
     string currentUserId = _userManager.GetUserId(User);
