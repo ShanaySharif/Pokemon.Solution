@@ -61,12 +61,11 @@
                     <form 
                         method="post" 
                         action="/Pokemons/Search" 
-                        class="checkbox-container @type.Key type-checkbox" data-type="@type.Key"
+                        class="checkbox-container @type.Key" data-type="@type.Key"
                     >
-                        <input type="hidden" name="typeKey" value="@type.Key">
+                        <input type="hidden" name="typeName" value="@type.Key">
                         <button type="submit" class="@type.Key type-label">@type.Key</button>
                     </form>
-                 
                 }
             </div>
         }

@@ -30,7 +30,7 @@ public class PokemonsController : Controller
 
     // Post Search()
     [HttpPost]
-    public ActionResult Search(string name)
+    public ActionResult Search(string name, string typeName)
     {
         IQueryable<Pokemon> query = _db.Pokemons;
 
@@ -38,6 +38,12 @@ public class PokemonsController : Controller
         {
             string nameTrim = name.ToLower().Trim();
             query = query.Where(p => p.Name.ToLower().Contains(nameTrim));
+        }
+
+        if (!string.IsNullOrEmpty(typeName))
+        {
+            string typeNameToLower = typeName.ToLower();
+            query = query.Where(p => p.Type1 == typeNameToLower || p.Type2 == typeNameToLower);
         }
 
         ViewBag.Types = PokemonTypes.Dictionary;
@@ -48,13 +54,13 @@ public class PokemonsController : Controller
 
     // Handled by site.js
     [HttpPost]
-    public ActionResult TypeFilter(string name)
+    public ActionResult TypeFilter(string typeName)
     {
         IQueryable<Pokemon> query = _db.Pokemons;
 
-        if (name != null)
+        if (typeName != null)
         {
-            query = query.Where(p => p.Type1 == name || p.Type2 == name);
+            query = query.Where(p => p.Type1 == typeName || p.Type2 == typeName);
         }
 
         ViewBag.Types = PokemonTypes.Dictionary;
