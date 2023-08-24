@@ -58,9 +58,15 @@
             <div id="filterCollapse" class="collapse types-container">
                 @foreach(var type in ViewBag.Types)
                 {
-                    <div class="checkbox-container @type.Key type-checkbox" data-type="@type.Key">
-                        <label for="@type.Key" class="@type.Key type-label">@type.Key</label>
-                    </div>
+                    <form 
+                        method="post" 
+                        action="/Pokemons/Search" 
+                        class="checkbox-container @type.Key type-checkbox" data-type="@type.Key"
+                    >
+                        <input type="hidden" name="typeKey" value="@type.Key">
+                        <button type="submit" class="@type.Key type-label">@type.Key</button>
+                    </form>
+                 
                 }
             </div>
         }
