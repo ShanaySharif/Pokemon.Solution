@@ -5,7 +5,7 @@ using PokedexClient.Models;
 using PokedexClient.ViewModels;
 using System.Threading.Tasks;
 using System.Linq;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace PokedexClient.Controllers;
 
@@ -110,7 +110,7 @@ public class AccountsController : Controller
     // Here, we include the PokemonUser list.
     var user = await _userManager.Users
                                  .Include(u => u.PokemonUsers)
-                                 .ThenInclude(pu => pu.Pokemon)  // If you want to load Pokemon details too.
+                                 .ThenInclude(pu => pu.Pokemon)
                                  .FirstOrDefaultAsync(u => u.Id == currentUserId);
 
     if (user == null)
@@ -122,31 +122,46 @@ public class AccountsController : Controller
     {
       Id = user.Id,
       Email = user.Email,
-      PokemonUsers = user.PokemonUsers
+      PokemonUsers = user.PokemonUsers,
+      Pokemons = user.PokemonUsers.Select(pu => pu.Pokemon).ToList()
     };
 
     return View(userProfileViewModel);
   }
 
   [HttpPost]
-  public ActionResult DeletePokemonFromUserList(int id)
+  [Authorize]
+  public async Task<IActionResult> AddPokemonToUserList(int pokemonId)
   {
-    PokemonUser thisPokemonUser = _db.PokemonUsers.FirstOrDefault(pokemonUser => pokemonUser.PokemonUserId == id);
-    return View(thisPokemonUser);
+    // Get the current logged-in user's ID.
+    string currentUserId = _userManager.GetUserId(User);
+
+    // Check if this relationship already exists.
+    var existingEntry = _db.PokemonUsers.FirstOrDefault(pu => pu.PokemonId == pokemonId && pu.ApplicationUserId == currentUserId);
+
+    // If it doesn't exist, create a new relationship.
+    if (existingEntry == null)
+    {
+      var newPokemonUser = new PokemonUser
+      {
+        ApplicationUserId = currentUserId,
+        PokemonId = pokemonId
+      };
+
+      _db.PokemonUsers.Add(newPokemonUser);
+      await _db.SaveChangesAsync();
+    }
+
+    // Redirect the user to the Profile view.
+    return RedirectToAction("Profile");
   }
 
-  [HttpPost]
-  public ActionResult AddPokemonToUserList(PokemonUser pokemonUser, int pokemonId)
-  {
-#nullable enable
-    PokemonUser? joinEntity = _db.PokemonUsers.FirstOrDefault(join => (join.PokemonId == pokemonId && join.PokemonUserId == pokemonUser.PokemonUserId));
-#nullable disable
-    if (joinEntity == null && pokemonId != 0)
-    {
-      _db.PokemonUsers.Add(new PokemonUser() { PokemonId = pokemonId, PokemonUserId = pokemonUser.PokemonUserId });
-      _db.SaveChanges();
-    }
-    return RedirectToAction("Details", new { id = pokemonUser.PokemonId });
-  }
+  // [HttpPost]
+  // public ActionResult DeletePokemonFromUserList(int id)
+  // {
+  //   PokemonUser thisPokemonUser = _db.PokemonUsers.FirstOrDefault(pokemonUser => pokemonUser.PokemonUserId == id);
+  //   return View(thisPokemonUser);
+  // }
+
 }
 
