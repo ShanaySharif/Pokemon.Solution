@@ -42,10 +42,11 @@ public class AccountsController : Controller
     }
     else
     {
-      ApplicationUser user = new ApplicationUser { UserName = model.Email };
+      ApplicationUser user = new ApplicationUser { UserName = model.Email, Email = model.Email };
       IdentityResult result = await _userManager.CreateAsync(user, model.Password);
       if (result.Succeeded)
       {
+        await AutoLoginUserAsync(user.UserName);
         return RedirectToAction("Index");
       }
       else
@@ -94,6 +95,20 @@ public class AccountsController : Controller
     return RedirectToAction("Index");
   }
 
+  // Method to auto login after registering.
+  private async Task<bool> AutoLoginUserAsync(string username)
+  {
+    var user = await _userManager.FindByNameAsync(username);
+    if (user != null)
+    {
+      await _signInManager.SignInAsync(user, isPersistent: true);
+      return true;
+    }
+    return false;
+  }
+
+
+
   [HttpGet("Accounts/Profile")]
   public async Task<IActionResult> Profile()
   {
@@ -121,7 +136,7 @@ public class AccountsController : Controller
     var userProfileViewModel = new UserProfileViewModel
     {
       Id = user.Id,
-      Email = user.Email,
+      Email = user.UserName,
       PokemonUsers = user.PokemonUsers,
       Pokemons = user.PokemonUsers.Select(pu => pu.Pokemon).ToList()
     };
@@ -156,12 +171,6 @@ public class AccountsController : Controller
     return RedirectToAction("Profile");
   }
 
-  // [HttpPost]
-  // public ActionResult DeletePokemonFromUserList(int id)
-  // {
-  //   PokemonUser thisPokemonUser = _db.PokemonUsers.FirstOrDefault(pokemonUser => pokemonUser.PokemonUserId == id);
-  //   return View(thisPokemonUser);
-  // }
 
 }
 

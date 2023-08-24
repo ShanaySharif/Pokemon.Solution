@@ -2,6 +2,14 @@ html {
   font-size: 14px;
 }
 
+.center-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -15,13 +23,29 @@ html {
 
 @font-face {
   font-family: VT323;
-  src: url(Pokemon.ttf);
+  src: url(~/css/Pokemon.ttf);
 }
 
 body {
   margin-bottom: 60px;
   background-color: rgba(225, 100, 229, 0.438);
   font-family: 'VT323', sans-serif;
+}
+
+.navbar {
+  background-color: #f8f9fa;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #343a40;
+}
+
+.user-nav {
+  display: flex;
+  justify-content: flex-end;
 }
 
 h1 {
@@ -31,21 +55,25 @@ h1 {
 
 .customBtn{
   background: linear-gradient(90deg, #FB1B1B 50%, black 50%, black 51%, rgb(236, 239, 234) 51%);
+  border-radius: 10px;
 }
 
 .customBtn:hover{
-  background: linear-gradient(90deg, white 50%, black 50%, black 51%, #FB1B1B 51%);
+  background: linear-gradient(90deg, rgb(236, 239, 234) 50%, black 50%, black 51%, #FB1B1B 51%);
 }
 
 .hoverRed{
   color: white;
 }
+
 .hoverWhite{
   color: red;
 }
+
 .customBtn:hover .hoverRed{ 
   color: red; 
 }
+
 .customBtn:hover .hoverWhite{ 
   color: white; 
 }
@@ -81,10 +109,10 @@ h1 {
   margin: 10px;
   
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background: linear-gradient(180deg, #FB1B1B 50%, black 50%, black 52%, #F9F9F8 52%); 
+  background: linear-gradient(180deg, #FB1B1B 50%, black 50%, black 52%, #4ef05ef2 52%); 
 
   transition: transform 0.3s, box-shadow 0.2s ease;
-  border: 2px solid black; /* Add border */
+  border: 2px solid black;
   background-size: 200% 100%;
   background-position: right bottom;
 }
@@ -206,24 +234,24 @@ h1 {
 }
 
 .add-pokemon-form {
-  position: absolute;     /* Position the form absolutely within the card */
-  top: 0px;               /* 5px from the top of the card */
-  right: 0px;             /* 5px from the right edge of the card */
-  z-index: 10;            /* Ensure the button is above other card content */
+  position: absolute;  
+  top: 0px;
+  right: 0px;        
+  z-index: 10;   
 }
 
 .add-to-list-btn {
   background-color: blue;
-  border-radius: 50%;     /* Makes the button circular */
-  width: 50px;            /* Button width */
-  height: 50px;           /* Button height */
-  border: none;           /* Remove any default borders */
-  color: white;           /* Text color */
-  font-size: 20px;        /* Increase the font size for the + symbol */
-  cursor: pointer;        /* Use pointer cursor on hover */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: none; 
+  color: white;
+  font-size: 20px; 
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .add-to-list-btn:hover {
-  background-color: deepskyblue; /* Slightly lighter blue on hover */
+  background-color: deepskyblue;
 }
