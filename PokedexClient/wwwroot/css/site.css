@@ -1,10 +1,19 @@
 html {
-  font-size: 14px;
+  font-size: 18px;
+}
+
+.center-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* min-height: 100vh; */
+  height: 75vh;
 }
 
 @media (min-width: 768px) {
   html {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 
@@ -15,54 +24,163 @@ html {
 
 @font-face {
   font-family: VT323;
-  src: url(VT323.ttf);
+  src: url("Pokemon.ttf");
 }
 
 body {
   margin-bottom: 60px;
-  font-family: VT323, sans-serif;
+  background: whitesmoke;
+  /* background-color: rgb(65, 65, 65); */
+  font-family: 'VT323', sans-serif;
 }
 
+/* Navbar styling */
+.navbar {
+  background-color: #f8f9fa;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #343a40;
+}
+
+.user-nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar-nav {
+  margin-left: auto;
+}
+
+.nav-item {
+  margin: 0 10px;
+}
+
+.nav-link {
+  color: #343a40;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #007bff;
+}
+
+/* Home Page styling */
+.welcome-search-container {
+  padding-top: 30vh;
+}
+
+.text-center h1 {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  width: 0;
+  animation: type-animation 6s steps(40, end) forwards;
+}
+
+@keyframes type-animation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+
+.customBtn{
+  background: linear-gradient(90deg, #FB1B1B 50%, black 50%, black 51%, rgb(236, 239, 234) 51%);
+  border-radius: 10px;
+}
+
+.customBtn:hover{
+  background: linear-gradient(90deg, rgb(236, 239, 234) 50%, black 50%, black 51%, #FB1B1B 51%);
+}
+
+.hoverRed{
+  color: white;
+}
+
+.hoverWhite{
+  color: red;
+}
+
+.customBtn:hover .hoverRed{ 
+  color: red; 
+}
+
+.customBtn:hover .hoverWhite{ 
+  color: white; 
+}
+
+.search-input-home {
+  width: 210px;
+}
+
+/* Card styling */
 .card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 20px;
-  font-family: VT323, sans-serif;
-
+  font-family: 'VT323', sans-serif;
 }
 
+.whiteColorText{
+  color: white;
+}
 
 .card-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'VT323', sans-serif;
+
   border: 1px solid #ddd;
-  border: 2px solid black;
   border-radius: 50px;
-  border: 5px
+  border: 2px solid black;
+
   width: 250px;
   padding: 15px;
   margin: 10px;
   
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: F9F9F8;
+  background: linear-gradient(180deg, #FB1B1B 50%, black 50%, black 52%, #ddd 52%); 
 
-  transition: transform 0.2s, box-shadow 0.2s, background-color .3s;
-
+  transition: transform 0.3s, box-shadow 0.2s ease;
+  border: 2px solid black;
+  background-size: 200% 100%;
+  background-position: right bottom;
 }
 
 .card-content:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(180deg, #FB1B1B 50%, black 50%, black 52%, #F9F9F8 52%); 
 }
+
 
 .card-content:hover img {
   transform: scale(1.1) translateY(-8px);
-  transition: transform 0.2s ease;
+  transition: transform 0.4s ease;
 }
 
 .card-container a {
-  text-decoration: bold;
-  color: rgb(61, 107, 187);     
+  text-decoration: none;
+  color: black;
   cursor: pointer; 
 }
 
@@ -70,32 +188,200 @@ body {
   margin: 5px;
 }
 
-.custom-checkbox + label {
-  display: inline-block;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-  padding: 3px 10px;
-  cursor: pointer;
-  transition: background-color 0.2s;
+.type-card-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 
-custom-checkbox:checked + label {
-  background-color: #e74c3c;
-  color: white;
+/* Type Selector Button Styling */
+.types-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
 }
 
-
-.checkbox-container {
-  border: solid black 1px;
-  border-radius: 2px;
-  display: inline-block;
-  padding: 2px;
+.type-container {
+  border: solid rgb(205, 201, 201) 1px;
+  border-radius: 4px;
+  padding: 8px;
   margin: 2px;
+
+  transition: filter 0.2s, border 0.2s ease;
 }
 
-.custom-checkbox {
-  transform: scaleX(1.5);
-  transform: scaleY(2.2);
+.type-container:hover {
+  filter: saturate(350%);
+  border: solid black 1px;
+}
+
+.type-label {
+  background: none;
+  border: none;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+  font-weight: 550;
+}
+
+.Normal {
+  background: rgb(156, 151, 153);
+}
+
+.Fire {
+  background: rgb(209, 44, 44);
+}
+
+.Water {
+  background:rgb(44, 105, 209);
+}
+
+.Electric { 
+  background:rgb(237, 241, 22);
+}
+
+.Grass {
+  background: rgb(115, 216, 20);
+}
+
+.Ice {
+  background: rgb(122, 222, 255);
+}
+
+.Fighting {
+  background: rgb(248, 132, 37);
+}
+
+.Poison {
+  background: rgb(190, 108, 228);
+}
+
+.Ground {
+  background: rgb(139, 95, 46);
+}
+
+.Flying {
+  background: rgb(122, 169, 255);
+}
+
+.Psychic {
+  background: rgb(229, 63, 104);
+}
+
+.Bug {
+  background: rgb(67, 155, 8);
+}
+
+.Rock {
+  background: rgb(182, 142, 83);
+}
+
+.Ghost {
+  background: rgb(130, 77, 166);
+}
+
+.Dragon {
+  background: rgb(255, 90, 30);
+}
+
+.uppercase {
+  text-transform: capitalize;
 }
 
 
+.add-to-list-btn, .delete-from-list-btn {
+
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: 2px solid transparent;
+  color: white;
+  font-size: 19px;
+  cursor: pointer;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out;
+  position: absolute;
+}
+
+.add-to-list-btn {
+  background-color: #2ecc71;
+  top: 10px;
+  right: 10px;
+}
+
+.delete-from-list-btn {
+  background-color: #e74c3c;
+  top: 10px;
+  left: 10px;
+}
+
+.add-to-list-btn:hover,
+.delete-from-list-btn:hover {
+  background-color: rgba(46, 204, 113, 0.8);
+  border-color: white;
+  transform: scale(2);
+}
+
+.delete-from-list-btn:hover {
+  background-color: rgba(231, 76, 60, 0.8);
+  border-color: white;
+}
+
+
+/* Detail page styling */
+.card-content-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'VT323', sans-serif;
+
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  border: 2px solid black;
+
+  width: 550px;
+  height: 550px;
+  padding: 15px;
+  margin: 10px;
+  
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(180deg, #FB1B1B 50%, black 50%, black 52%, #ddd 52%); 
+
+  transition: transform 0.3s, box-shadow 0.2s ease;
+  border: 2px solid black;
+  background-size: 200% 100%;
+  background-position: right bottom;
+  
+  animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.card-content-details:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px);
+}
+
+.card-content-details:hover img {
+  transform: scale(1.1) translateY(-8px);
+  transition: transform 0.4s ease;
+}
+
+.opacity-100 {
+  opacity: 100%;
+}
+
+.animated-table tr:hover{
+  background-color: rgb(234, 186, 186);
+}

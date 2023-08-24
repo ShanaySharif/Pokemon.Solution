@@ -10,7 +10,15 @@
 <div class="card-container">
     @foreach (var pokemonUser in Model)
     {
-        <p>@Html.ActionLink($"{pokemonUser.Pokemon.Name}", "Details", "Pokemons", new { id = pokemonUser.PokemonUserId }, null)</p>
+        <a href="/pokemons/details/@pokemon.PokemonId">
+            <div class="card-content">
+                <p>@pokemon.Number</p>
+                <p>@pokemon.Name</p>
+                <img src="/images/@(pokemon.PokemonId).png" width="200px" /> 
+                <p>@pokemon.Type1</p>
+                <p>@pokemon.Type2</p>   
+            </div>
+        </a>
     }
 </div>
 

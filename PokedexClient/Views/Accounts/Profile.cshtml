@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+
+<h1>User: @Model.UserName</h1>
+<h1>Email: @Model.Email</h1>
+
+
+@if(Model.Pokemons.Count == 0)
+{
+  <p>Go add a Pokémon to your lineup!</p>
+} 
+else
+{
+    <div id="pokemonContainer" class="card-container">
+        @await Html.PartialAsync("_PokemonList", (List<Pokemon>)Model.Pokemons)
+    </div>
+
+    
+}

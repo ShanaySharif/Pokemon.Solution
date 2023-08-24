@@ -7,4 +7,5 @@ public class PokemonUser
     public ApplicationUser ApplicationUser { get; set; }
     public int PokemonId { get; set; }
     public Pokemon Pokemon { get; set; }
+
 }

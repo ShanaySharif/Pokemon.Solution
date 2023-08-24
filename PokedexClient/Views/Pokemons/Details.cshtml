@@ -1,0 +1,215 @@
+@{
+    ViewData["Title"] = "Full Pokemon Details";
+}
+
+<style>
+    .upBall {
+        z-index: 1;
+    }
+
+    .upBall {
+        position: relative;
+        top: 135px;
+        transform: scale(1.01);
+    }
+
+    .downBall {
+        position: relative;
+    }
+
+    .down2 {
+        top: 10px;
+        z-index: -1;
+    }
+
+    .down1 {
+        z-index: 3;
+    }
+
+    .pokemonBall .upBall {
+        animation-name: upMove, disappear;
+        animation-duration:  1.5s;
+        animation-fill-mode: forwards;
+        animation-delay: 0s, 0.5s;
+    }
+
+    .pokemonBall .down1 {
+        animation-name: down1Move, disappear;
+        animation-duration:  1.5s;
+        animation-fill-mode: forwards;
+        animation-delay: 0s, 0.5s;
+    }
+
+    .pokemonBall .down2 {
+        animation-name: down2Move, disappear;
+        animation-duration:  1.5s;
+        animation-fill-mode: forwards;
+        animation-delay: 0s, 0.5s;
+    }
+
+    .pokemonBall .pokemonImg {
+        animation: pokemonMove 1.5s forwards;
+    }
+
+    .pokemonBall h1 {
+        position: relative;
+        left: 75%;
+        transform: translateX(-50%);
+        margin-top: 80px;
+    }
+
+    @@keyframes disappear{
+      from{
+        opacity: 1;
+      }to{
+        opacity: 0;
+      }
+    }
+    @@keyframes pokemonMove {
+        from {
+            scale: 0.5;
+            bottom: 30px;
+        }
+
+        to {
+            scale: 1;
+            bottom: 100px;
+            z-index: 2;
+        }
+    }
+
+    .pokemonImg {
+        position: relative;
+        left: 65px;
+        bottom: 30px;
+        scale: 0.5;
+    }
+
+    .pokemonImgDiv {
+        position: absolute;
+    }
+
+
+    @@keyframes down1Move {
+        from {
+            top: 0px
+        }
+
+        to {
+            top: 50px;
+        }
+    }
+
+    @@keyframes down2Move {
+        from {
+            top: 10px
+        }
+
+        to {
+            top: 60px;
+        }
+    }
+
+    @@keyframes upMove {
+        from {
+            top: 130px;
+            transform: rotateX(0deg);
+        }
+
+        to {
+            top: 50px;
+            transform: rotateX(-20deg);
+        }
+    }
+
+    @@media (max-width: 990px) {
+        .pokemonBall {
+            scale: 0.8;
+        }
+    }
+
+    @@media (max-width: 1400px) 
+        .pokemonImg {
+            left: 120px;
+        }
+
+        @@media (max-width: 1200px) {
+            .pokemonImg {
+                left: 80px;
+            }
+        }
+</style>
+<div class="container imgName">
+      <div class="row">
+            <div class="col-md-6 d-flex justify-content-center align-items-center ">
+                <div class="text-center-details border-0 white-border">
+                    <div class="pokemonBall mb-3">
+                        <img class="upBall" src="/images/ball/up.png" alt="">
+                        <div class="pokemonImgDiv">
+                                <img class="pokemonImg" src="/images/@(Model.Number).png" class="img-fluid" width="300px" style="max-width: 100%; height: auto;" />
+                        </div>
+
+                        <img class="downBall down2" src="/images/ball/down2.png" alt="">
+                        <img class="downBall down1" src="/images/ball/down1.png" alt="">
+                    
+                        <h1 style="font-size: 30px;">@Model.Name</h1>
+                    </div>   
+                </div>
+            </div>
+
+
+        <div class="col-md-6" style="font-size: 25px;">
+            <h2>Details</h2>
+            <table class="table animated-table">
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Number</td>
+                    <td>@Model.Number</td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>@Model.Name</td>
+                </tr>
+                <tr>
+                    <td>Type 1</td>
+                    <td>@Model.Type1</td>
+                </tr>
+                <tr>
+                    <td>Type 2</td>
+                    <td>@Model.Type2</td>
+                </tr>
+                <tr>
+                    <td>Height</td>
+                    <td>@Model.Height</td>
+                </tr>
+                <tr>
+                    <td>Weight</td>
+                    <td>@Model.Weight</td>
+                </tr>
+                <tr>
+                    <td>HP</td>
+                    <td>@Model.HP</td>
+                </tr>
+                <tr>
+                    <td>Attack</td>
+                    <td>@Model.Attack</td>
+                </tr>
+                <tr>
+                    <td>Defense</td>
+                    <td>@Model.Defense</td>
+                </tr>
+                <tr>
+                    <td>Special</td>
+                    <td>@Model.Special</td>
+                </tr>
+                <tr>
+                    <td>Speed</td>
+                    <td>@Model.Speed</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
