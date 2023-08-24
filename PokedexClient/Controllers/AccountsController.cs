@@ -175,6 +175,30 @@ public class AccountsController : Controller
     return RedirectToAction("Profile");
   }
 
+  public async Task<IActionResult> DeletePokemonFromUserList(int pokemonId)
+  {
+    if (!User.Identity.IsAuthenticated)
+    {
+      return RedirectToAction("Register");
+    }
+
+    // Get the current logged-in user's ID.
+    string currentUserId = _userManager.GetUserId(User);
+
+    // Check if this relationship already exists.
+    var existingEntry = _db.PokemonUsers.FirstOrDefault(pu => pu.PokemonId == pokemonId && pu.ApplicationUserId == currentUserId);
+
+    // If it exists, delete the existing relationship.
+    if (existingEntry != null)
+    {
+      _db.PokemonUsers.Remove(existingEntry);
+      await _db.SaveChangesAsync();
+    }
+
+    // Redirect the user to the Profile view.
+    return RedirectToAction("Profile");
+  }
+
 
 }
 
