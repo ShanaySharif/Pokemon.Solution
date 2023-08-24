@@ -28,7 +28,7 @@ html {
 
 body {
   margin-bottom: 60px;
-  background-color: rgba(225, 100, 229, 0.438);
+  background-color: rgb(65, 65, 65);
   font-family: 'VT323', sans-serif;
 }
 
@@ -47,6 +47,11 @@ body {
   display: flex;
   justify-content: flex-end;
 }
+
+.navbar-nav {
+  margin-left: auto;
+}
+
 
 h1 {
   font-size: 35px;
