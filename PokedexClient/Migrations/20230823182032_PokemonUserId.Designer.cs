@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PokedexClient.Models;
 
@@ -10,9 +11,10 @@ using PokedexClient.Models;
 namespace PokedexClient.Migrations
 {
     [DbContext(typeof(PokedexContext))]
-    partial class PokedexContextModelSnapshot : ModelSnapshot
+    [Migration("20230823182032_PokemonUserId")]
+    partial class PokemonUserId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -273,7 +275,7 @@ namespace PokedexClient.Migrations
 
                     b.HasIndex("PokemonId");
 
-                    b.ToTable("PokemonUsers");
+                    b.ToTable("PokemonsUsers");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -330,7 +332,7 @@ namespace PokedexClient.Migrations
             modelBuilder.Entity("PokedexClient.Models.PokemonUser", b =>
                 {
                     b.HasOne("PokedexClient.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany("PokemonUsers")
+                        .WithMany("PokemonUser")
                         .HasForeignKey("ApplicationUserId");
 
                     b.HasOne("PokedexClient.Models.Pokemon", "Pokemon")
@@ -346,7 +348,7 @@ namespace PokedexClient.Migrations
 
             modelBuilder.Entity("PokedexClient.Models.ApplicationUser", b =>
                 {
-                    b.Navigation("PokemonUsers");
+                    b.Navigation("PokemonUser");
                 });
 
             modelBuilder.Entity("PokedexClient.Models.Pokemon", b =>

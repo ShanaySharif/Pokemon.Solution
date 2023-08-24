@@ -1,27 +1,40 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="text-center">
-    <h1> WELCOME TO THE POKEDEX </h1>
-</div>
-<div class= "center-text container">
-    <h1>Pokedex Search</h1>
-    <br>
-        @using (Html.BeginForm("Search", "Pokemons", FormMethod.Post ))
-        {
-            <label for="name">Pokemon Name: </label>
-            <input type="text" name="name" />
-            <br>
-            <br>
-            @foreach(var type in ViewBag.Types)
+<div class="alpha-container">
+    <div class="welcome-search-container">
+        <div class="text-center">
+            <h1>SEARCH THE POKÉDEX</h1>
+        </div>
+        <div class="search-container">
+            @using (Html.BeginForm("Search", "Pokemons", FormMethod.Post, new { @class = "search-form" }))
             {
-                <div class="checkbox-container">
-                    <input type="checkbox" name="types" value="@type.Value" id="@type.Key" class="custom-checkbox"/>
-                    <label for="@type.Key" class="@type.Key type-label">@type.Key</label>
-                </div>
+                <input 
+                    type="text" 
+                    name="name" 
+                    placeholder="► Search by Pokémon name" 
+                    class="search-input-home"
+                 />
+                <button type="submit" class="btn customBtn border me-3">
+                    <span class="hoverRed">Sea</span><span class="hoverWhite">rch</span>
+                </button>
+                <button class="btn border" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse">
+                    Types ▼
+                </button>
             }
-            <br>
-            <button type="submit" class="btn btn-success">Search</button>
+        </div>
+    </div>
+    <div id="filterCollapse" class="collapse types-container">
+        @foreach(var type in ViewBag.Types)
+        {
+            <form 
+                method="post" 
+                action="/Pokemons/Search" 
+                class="type-container @type.Key" data-type="@type.Key"
+            >
+                <input type="hidden" name="typeName" value="@type.Key">
+                <button type="submit" class="@type.Key type-label">@type.Key</button>
+            </form>
         }
+    </div>
 </div>
