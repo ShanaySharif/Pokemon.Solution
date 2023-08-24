@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using PokedexClient.Models;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 
 namespace PokemonUserController.Controllers;
@@ -14,12 +16,6 @@ public class PokemonsController : Controller
     public PokemonsController(PokedexContext db)
     {
         _db = db;
-    }
-
-    public ActionResult Index()
-    {
-        List<PokemonUser> pokemonUsers = _db.PokemonUsers.ToList();
-        return View(pokemonUsers);
     }
 
     public ActionResult Create()
