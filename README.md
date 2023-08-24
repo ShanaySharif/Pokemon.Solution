@@ -6,8 +6,7 @@ By: Austin Papritz,Hernan Verar,Pier Rodriguez,Raed Alkhanbashi,Shankaron Mohame
 ## ```Description``` &#x1F481; &#x1F4D6;
 The Pokédex Web Application, built on ASP.NET Core MVC, presents users with an intuitive interface to delve into and search for Pokémon cards. It empowers users to effortlessly seek out Pokémon by name and type, while delivering exhaustive details about each unique creature. In terms of functionality, the application enables users to establish profiles, giving them the capacity to curate a collection of their favored Pokémon cards, thereby creating a personal catalog of beloved Pokémon.
 
-## ```Setup/Installation Requirements``` &#x1F4BB;
-```
+## Utilized Technologies
 * C#
 * ASP.NET Core
 * JavaScript
@@ -17,6 +16,28 @@ The Pokédex Web Application, built on ASP.NET Core MVC, presents users with an 
 * Entity Framework Core
 * EF Core Identity
 * JQuery
+
+
+## ```Setup/Installation Requirements``` &#x1F4BB;
+```
+
+In the terminal run these commands in order: $ git clone Pokemon.Solution
+
+Cd Pokemon.Solution
+
+Next in the command line: touch .gitignore, then copy/paste this into the .gitignore file: obj bin appsettings.json
+
+Navigate to this project's production directory called "SweetAndSavory" with $ cd SweetAndSavory. Within the production directory run the command $ touch appsettings.json. -In the appsettings.json file, paste in the following code, replacing [user-id] and [password] with your username and password for MySQL Workbench. (Remember to remove the square brackets when inputting your details): { `"ConnectionStrings": { "DefaultConnection": "Server=localhost;Port=3306;database=factory;uid=[user-id];pwd=[password];" } }`` Within the production directory "SweetAndSavory", run $ dotnet ef database update to instantiate the database.
+
+Still within the production directory, run $ dotnet watch run in the command line to launch the application in development mode in a browser, and interact with the application.
+
+Once on the application,follow instructions and create Login information.
+
+Navigate webpage and enjoy
+
+
+
+
 ```
 
  ## ```Prerequisites```
