@@ -24,7 +24,7 @@ html {
 
 @font-face {
   font-family: VT323;
-  src: url(~/css/Pokemon.ttf);
+  src: url("Pokemon.ttf");
 }
 
 body {
@@ -105,6 +105,10 @@ body {
 
 .customBtn:hover .hoverWhite{ 
   color: white; 
+}
+
+.search-input-home {
+  width: 300px;
 }
 
 /* Card styling */
@@ -269,55 +273,17 @@ body {
   text-transform: capitalize;
 }
 
-/* Blue "+" add pokemon to list button */
-.add-pokemon-form {
-  position: absolute;  
-  top: 0px;
-  right: 0px;     
-  z-index: 10;   
-}
 
-.add-to-list-btn {
-  background-color: blue;
+.add-to-list-btn, .delete-from-list-btn {
+
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  border: none; 
-  color: white;
-  font-size: 20px; 
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 40px;
+  height: 40px;
+  bordder:
 }
 
-.add-to-list-btn:hover {
-  background-color: deepskyblue;
-}
 
-/* Grey delete button */
-.delete-pokemon-form {
-  position: absolute;  
-  top: 0px;
-  left: 0px;     
-  z-index: 10;   
-}
-
-.delete-from-list-btn {
-  background-color: rgb(161, 161, 161);
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  border: none; 
-  color: white;
-  font-size: 20px; 
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.delete-from-list-btn:hover {
-  background-color: deepskyblue;
-}
-
-/* Detail styling */
+/* Detail page styling */
 .card-content-details {
   display: flex;
   flex-direction: column;

@@ -1,55 +1,26 @@
-﻿<!-- @{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="text-center">
-    <h1> WELCOME TO THE POKEDEX </h1>
-</div>
-<div class= "text-center container">
-    <h1>Pokedex Search</h1>
-
-    </div>
-<div>
-    <br>
-    <div class= "text-center container">
-        @using (Html.BeginForm("Search", "Pokemons", FormMethod.Post ))
-        {
-            <label for="name">Pokemon Name: </label>
-        <input type="text" name="name" />
-        <button type="submit" class="btn customBtn border me-3">
-            <span class="hoverRed">Sea</span><span class="hoverWhite">rch!</span>
-        </button>
-        <button class="btn border" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse">
-            Filters
-        </button>
-        <div id="filterCollapse" class="collapse types-container">
-            @foreach(var type in ViewBag.Types)
-            {
-                <div class="checkbox-container @type.Key type-checkbox" data-type="@type.Key" >
-                    <label for="@type.Key" class="@type.Key type-label">@type.Key</label>
-                </div>
-            }
-        </div>
-        }
-</div> -->
-
+﻿
 @{
     ViewData["Title"] = "Home Page";
 }
 <div class="alpha-container">
     <div class="welcome-search-container">
         <div class="text-center">
-            <h1>Search the Pokédex</h1>
+            <h1>SEARCH THE POKÉDEX</h1>
         </div>
         <div class="search-container">
             @using (Html.BeginForm("Search", "Pokemons", FormMethod.Post, new { @class = "search-form" }))
             {
-                <input type="text" name="name" placeholder="Search by Pokémon name"/>
+                <input 
+                    type="text" 
+                    name="name" 
+                    placeholder="► Search by Pokémon name" 
+                    class="search-input-home"
+                 />
                 <button type="submit" class="btn customBtn border me-3">
                     <span class="hoverRed">Sea</span><span class="hoverWhite">rch!</span>
                 </button>
                 <button class="btn border" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse">
-                    Types
+                    Types ▼
                 </button>
             }
         </div>
