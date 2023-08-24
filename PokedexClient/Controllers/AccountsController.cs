@@ -148,6 +148,11 @@ public class AccountsController : Controller
   [Authorize]
   public async Task<IActionResult> AddPokemonToUserList(int pokemonId)
   {
+    // if (!User.Identity.IsAuthenticated)
+    //   return View("Register");
+    //if user is not authenticated
+    //then return View("Register");
+
     // Get the current logged-in user's ID.
     string currentUserId = _userManager.GetUserId(User);
 
