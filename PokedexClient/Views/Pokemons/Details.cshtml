@@ -28,27 +28,34 @@
 
     .pokemonBall .upBall {
         animation-name: upMove, disappear;
-        animation-duration:  1s;
+        animation-duration:  1.5s;
         animation-fill-mode: forwards;
         animation-delay: 0s, 0.5s;
     }
 
     .pokemonBall .down1 {
         animation-name: down1Move, disappear;
-        animation-duration:  1s;
+        animation-duration:  1.5s;
         animation-fill-mode: forwards;
         animation-delay: 0s, 0.5s;
     }
 
     .pokemonBall .down2 {
         animation-name: down2Move, disappear;
-        animation-duration:  1s;
+        animation-duration:  1.5s;
         animation-fill-mode: forwards;
         animation-delay: 0s, 0.5s;
     }
 
     .pokemonBall .pokemonImg {
-        animation: pokemonMove 1s forwards;
+        animation: pokemonMove 1.5s forwards;
+    }
+
+    .pokemonBall h1 {
+        position: relative;
+        left: 75%;
+        transform: translateX(-50%);
+        margin-top: 80px;
     }
 
     @@keyframes disappear{
@@ -73,7 +80,7 @@
 
     .pokemonImg {
         position: relative;
-        left: 160px;
+        left: 65px;
         bottom: 30px;
         scale: 0.5;
     }
@@ -121,7 +128,7 @@
         }
     }
 
-    @@media (max-width: 1400px) {
+    @@media (max-width: 1400px) 
         .pokemonImg {
             left: 120px;
         }

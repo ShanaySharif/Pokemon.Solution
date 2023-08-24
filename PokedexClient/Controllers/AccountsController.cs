@@ -41,11 +41,11 @@ public class AccountsController : Controller
     }
     else
     {
-      ApplicationUser user = new ApplicationUser { Name = model.UserName, UserName = model.Email, Email = model.Email };
+      ApplicationUser user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
       IdentityResult result = await _userManager.CreateAsync(user, model.Password);
       if (result.Succeeded)
       {
-        await AutoLoginUserAsync(user.UserName);
+        await AutoLoginUserAsync(user.Email);
         return RedirectToAction("Index");
       }
       else
@@ -95,9 +95,9 @@ public class AccountsController : Controller
   }
 
   // Method to auto login after registering.
-  private async Task<bool> AutoLoginUserAsync(string username)
+  private async Task<bool> AutoLoginUserAsync(string email)
   {
-    var user = await _userManager.FindByNameAsync(username);
+    var user = await _userManager.FindByEmailAsync(email);
     if (user != null)
     {
       await _signInManager.SignInAsync(user, isPersistent: true);
@@ -135,7 +135,8 @@ public class AccountsController : Controller
     var userProfileViewModel = new UserProfileViewModel
     {
       Id = user.Id,
-      Email = user.UserName,
+      Email = user.Email,
+      UserName = user.UserName,
       PokemonUsers = user.PokemonUsers,
       Pokemons = user.PokemonUsers.Select(pu => pu.Pokemon).ToList()
     };
