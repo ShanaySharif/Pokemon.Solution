@@ -15,7 +15,7 @@ typeSearch.forEach((typeSearch) => {
             url: "/Pokemons/TypeFilter",
             type: 'POST',
             // Filter route requires a type name.
-            data: { name: typeName },
+            data: { typeName: typeName },
             success: function(response) {
                 // Replace the container's content with the returned HTML
                 document.getElementById("pokemonContainer").innerHTML = response;

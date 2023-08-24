@@ -60,7 +60,8 @@ public class PokemonsController : Controller
 
         if (typeName != null)
         {
-            query = query.Where(p => p.Type1 == typeName || p.Type2 == typeName);
+            string typeNameToLower = typeName.ToLower();
+            query = query.Where(p => p.Type1 == typeNameToLower || p.Type2 == typeNameToLower);
         }
 
         ViewBag.Types = PokemonTypes.Dictionary;
