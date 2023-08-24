@@ -33,29 +33,16 @@
         }
 </div> -->
 
-
-
 @{
     ViewData["Title"] = "Home Page";
 }
-
-<!-- <style>
-    
-    .center-page {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-    }
-</style> -->
 
 <div class="center-page">
     <div class="text-center">
         <h1>WELCOME TO THE POKEDEX</h1>
     </div>
     <div class="text-center container">
-        <h1>Pokedex Search</h1>
+        
     </div>
     <div class="text-center container">
         @using (Html.BeginForm("Search", "Pokemons", FormMethod.Post))
@@ -63,7 +50,7 @@
             <label for="name">Pokemon Name: </label>
             <input type="text" name="name" />
             <button type="submit" class="btn customBtn border me-3">
-                <span class="hoverRed">Search!</span><span class="hoverWhite">rch!</span>
+                <span class="hoverRed">Sea</span><span class="hoverWhite">rch!</span>
             </button>
             <button class="btn border" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse">
                 Filters
