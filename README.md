@@ -21,19 +21,18 @@ The Pokédex Web Application, built on ASP.NET Core MVC, presents users with an 
 ## ```Setup/Installation Requirements``` &#x1F4BB;
 ```
 
-In the terminal run these commands in order: $ git clone Pokemon.Solution
+- In the terminal run these commands in order: $ git clone Pokemon.Solution
+- Cd Pokemon.Solution
+- Next in the command line: touch .gitignore, then copy/paste this into the .gitignore file: obj bin appsettings.json
+- Navigate to this project's production directory called "PokedexClient" with $ cd PokedexClient. 
+- Within the production directory run the command $ touch appsettings.json. - In the appsettings.json file, paste in the following code, replacing [user-id] and [password] with your username and password for MySQL Workbench. (Remember to remove the square brackets when inputting your details):
 
-Cd Pokemon.Solution
+``` { `"ConnectionStrings": { "DefaultConnection": "Server=localhost;Port=3306;database=factory;uid=[user-id];pwd=[password];" } }```
 
-Next in the command line: touch .gitignore, then copy/paste this into the .gitignore file: obj bin appsettings.json
-
-Navigate to this project's production directory called "SweetAndSavory" with $ cd SweetAndSavory. Within the production directory run the command $ touch appsettings.json. -In the appsettings.json file, paste in the following code, replacing [user-id] and [password] with your username and password for MySQL Workbench. (Remember to remove the square brackets when inputting your details): { `"ConnectionStrings": { "DefaultConnection": "Server=localhost;Port=3306;database=factory;uid=[user-id];pwd=[password];" } }`` Within the production directory "SweetAndSavory", run $ dotnet ef database update to instantiate the database.
-
-Still within the production directory, run $ dotnet watch run in the command line to launch the application in development mode in a browser, and interact with the application.
-
-Once on the application,follow instructions and create Login information.
-
-Navigate webpage and enjoy
+- Within the production directory "SweetAndSavory", run $ dotnet ef database update to instantiate the database.
+- Still within the production directory, run $ dotnet watch run in the command line to launch the application in development mode in a browser, and interact with the application.
+- Once on the application,navigate to  sign up on the right hand corner and create Login information.
+- Enjoy!
 
 
 
