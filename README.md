@@ -43,8 +43,6 @@ The Pokédex Web Application is built using ASP.NET Core MVC and provides a simp
 2. Restore dependencies: `dotnet restore`
 3. Build the application: `dotnet build`
 
-
-
 ### Running the Application
 
 To run the application locally:
@@ -58,7 +56,6 @@ To run the application locally:
 
 - The main page displays a list of Pokémon.
 - You can use the search bar to search for Pokémon by name.
-
 
 ## Contributing
 

@@ -26,30 +26,29 @@
         z-index: 3;
     }
 
-    .pokemonBall:hover .upBall {
+    .pokemonBall .upBall {
         animation-name: upMove, disappear;
         animation-duration:  1s;
         animation-fill-mode: forwards;
-        animation-delay: 0s, 1s;
+        animation-delay: 0s, 0.5s;
     }
 
-    .pokemonBall:hover .down1 {
+    .pokemonBall .down1 {
         animation-name: down1Move, disappear;
         animation-duration:  1s;
         animation-fill-mode: forwards;
-        animation-delay: 0s, 1s;
+        animation-delay: 0s, 0.5s;
     }
 
-    .pokemonBall:hover .down2 {
+    .pokemonBall .down2 {
         animation-name: down2Move, disappear;
         animation-duration:  1s;
         animation-fill-mode: forwards;
-        animation-delay: 0s, 1s;
+        animation-delay: 0s, 0.5s;
     }
 
-    .pokemonBall:hover .pokemonImg {
+    .pokemonBall .pokemonImg {
         animation: pokemonMove 1s forwards;
-        animation-delay: 0.5s;
     }
 
     @@keyframes disappear{
@@ -135,21 +134,21 @@
 </style>
 <div class="container imgName">
       <div class="row">
-            <div class="col-md-6 d-flex justify-content-center align-items-center">
-                    <div class="text-center-details border-0 white-border" >
-                        <div class="pokemonBall mb-3">
-                    <img class="upBall" src="/images/ball/up.png" alt="">
-                    <div class="pokemonImgDiv">
-                        <img class="pokemonImg" src="/images/@(Model.Number).png" class="img-fluid" width="300px" style="max-width: 100%; height: auto;" />
-                    </div>
-                    <img class="downBall down2" src="/images/ball/down2.png" alt="">
+            <div class="col-md-6 d-flex justify-content-center align-items-center ">
+                <div class="text-center-details border-0 white-border">
+                    <div class="pokemonBall mb-3">
+                        <img class="upBall" src="/images/ball/up.png" alt="">
+                        <div class="pokemonImgDiv">
+                                <img class="pokemonImg" src="/images/@(Model.Number).png" class="img-fluid" width="300px" style="max-width: 100%; height: auto;" />
+                        </div>
 
-                    <img class="downBall down1" src="/images/ball/down1.png" alt="">
-                </div>
-                <br>
+                        <img class="downBall down2" src="/images/ball/down2.png" alt="">
+                        <img class="downBall down1" src="/images/ball/down1.png" alt="">
+                    
                         <h1 style="font-size: 30px;">@Model.Name</h1>
-                    </div>
+                    </div>   
                 </div>
+            </div>
 
 
         <div class="col-md-6" style="font-size: 25px;">

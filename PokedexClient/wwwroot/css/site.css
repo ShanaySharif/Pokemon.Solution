@@ -70,6 +70,18 @@ body {
   color: #007bff;
 }
 
+/* Home Page styling */
+.welcome-search-container {
+  padding-top: 30vh;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+
 .customBtn{
   background: linear-gradient(90deg, #FB1B1B 50%, black 50%, black 51%, rgb(236, 239, 234) 51%);
   border-radius: 10px;
@@ -155,38 +167,37 @@ body {
 }
 
 /* Type Selector Styling */
-.checkbox-container {
-  display: inline-block;
-  border: solid rgb(205, 201, 201) 1px;
-  border-radius: 4px;
-  padding: 8px;
-  margin: 2px;
-  transition: filter 0.2s, border 0.2s ease;
-}
-
-.checkbox-container:hover {
-  filter: saturate(350%);
-  border: solid black 1px;
-}
-
-.custom-checkbox {
-  transform: scale(1.5);
-  margin-right: 3px;
-}
-
 .types-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 10px;
 }
 
 .type-container {
+  display: inline-block;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+
+  border: solid rgb(205, 201, 201) 1px;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 2px;
+
+  transition: filter 0.2s, border 0.2s ease;
+}
+
+.type-container:hover {
+  filter: saturate(350%);
+  border: solid black 1px;
 }
 
 .type-label {
+  background: none;
+  border: none;
   color: white;
   min-width: 50px;
   text-align: center;
@@ -289,7 +300,6 @@ body {
 
 /* Detail styling */
 .card-content-details {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -312,7 +322,19 @@ body {
   border: 2px solid black;
   background-size: 200% 100%;
   background-position: right bottom;
+  
+  animation: fadeIn 1.5s ease-in-out forwards;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 
 .card-content-details:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
@@ -323,4 +345,8 @@ body {
 .card-content-details:hover img {
   transform: scale(1.1) translateY(-8px);
   transition: transform 0.4s ease;
+}
+
+.opacity-100 {
+  opacity: 100%;
 }

@@ -1,7 +1,7 @@
 ﻿// Utilizing AJAX to asynchronously filter Pokémon by type.
-const typeSearch = document.querySelectorAll('.type-checkbox');
+const typeSearch = document.querySelectorAll('.type-div');
 
-// Create click handler for every type checkbox.
+// Create click handler for every type div.
 typeSearch.forEach((typeSearch) => {
     typeSearch.addEventListener('click', (e) => {
         e.preventDefault(); 

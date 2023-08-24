@@ -15,7 +15,7 @@
                         <span class="hoverRed">Sea</span><span class="hoverWhite">rch!</span>
                     </button>
                     <button class="btn border me-5" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse">
-                        Filters
+                        Types
                     </button>
                 </div>
         </div>
@@ -23,7 +23,7 @@
         <div id="filterCollapse" class="collapse types-container">
             @foreach(var type in ViewBag.Types)
             {
-                <div class="checkbox-container @type.Key type-checkbox" data-type="@type.Key" >
+                <div class="type-container @type.Key type-div" data-type="@type.Key" >
                     <label for="@type.Key" class="@type.Key type-label">@type.Key</label>
                 </div>
             }
