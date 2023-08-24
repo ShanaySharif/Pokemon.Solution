@@ -10,15 +10,26 @@
 {
     <a href="/pokemons/details/@pokemon.PokemonId">
         <div class="card-content">
+
+            @* Blue add button *@
             <form method="post" action="/Accounts/AddPokemonToUserList" class="add-pokemon-form">
                 <input type="hidden" name="pokemonId" value="@pokemon.PokemonId" />
                 <button type="submit" class="add-to-list-btn" title="Add Pokémon to your lineup">+</button>
             </form>
+
+            @* Grey delete button *@
+            <form method="post" action="/Accounts/DeletePokemonFromUserList" class="delete-pokemon-form">
+                <input type="hidden" name="pokemonId" value="@pokemon.PokemonId" />
+                <button type="submit" class="delete-from-list-btn" title="Remove Pokémon from your lineup">-</button>
+            </form>
+
+            @* Number, name, and image *@
             <p class="whiteColorText">@pokemon.Number</p>
             <h2 class="whiteColorText">@pokemon.Name</h2>
             <img src="/images/@(pokemon.PokemonId).png" width="200px" /> 
 
-            <div class="type-container">
+            @* Pokemon's type(s) *@
+            <div class="type-card-container">
                 <p class="uppercase">@pokemon.Type1</p>
                 @if(pokemon.Type2 != "None")
                 {

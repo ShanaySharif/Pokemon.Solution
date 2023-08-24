@@ -265,6 +265,10 @@ body {
   background: rgb(255, 90, 30);
 }
 
+.uppercase {
+  text-transform: capitalize;
+}
+
 /* Blue "+" add pokemon to list button */
 .add-pokemon-form {
   position: absolute;  
@@ -289,10 +293,29 @@ body {
   background-color: deepskyblue;
 }
 
-.uppercase {
-  text-transform: capitalize;
+/* Grey delete button */
+.delete-pokemon-form {
+  position: absolute;  
+  top: 0px;
+  left: 0px;     
+  z-index: 10;   
 }
 
+.delete-from-list-btn {
+  background-color: rgb(161, 161, 161);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: none; 
+  color: white;
+  font-size: 20px; 
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.delete-from-list-btn:hover {
+  background-color: deepskyblue;
+}
 
 /* Detail styling */
 .card-content-details {
