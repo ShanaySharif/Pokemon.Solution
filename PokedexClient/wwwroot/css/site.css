@@ -7,7 +7,8 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  height: 75vh;
 }
 
 @media (min-width: 768px) {
@@ -283,4 +284,43 @@ body {
 
 .uppercase {
   text-transform: capitalize;
+}
+
+
+/* Detail styling */
+.card-content-details {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'VT323', sans-serif;
+
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  border: 2px solid black;
+
+  width: 550px;
+  height: 550px;
+  padding: 15px;
+  margin: 10px;
+  
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(180deg, #FB1B1B 50%, black 50%, black 52%, #ddd 52%); 
+
+  transition: transform 0.3s, box-shadow 0.2s ease;
+  border: 2px solid black;
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+
+.card-content-details:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px);
+}
+
+
+.card-content-details:hover img {
+  transform: scale(1.1) translateY(-8px);
+  transition: transform 0.4s ease;
 }
